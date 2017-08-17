@@ -11,7 +11,7 @@
 
     http{
         #初始化变量的lua项目地址
-        init_by_lua_file "/home/s/test/lua_web/lua/config/config.lua";
+        init_by_lua_file "/data/www/lua_web/lua/config/config.lua";
         lua_shared_dict apiDatas 1m;
     #设置默认路由
     location / {
@@ -23,10 +23,10 @@
     location /lua {
                 lua_code_cache off;#此参数上线后开启
                 #此参数代表lua项目的地址
-                content_by_lua_file "/home/s/test/lua_web/lua/index.lua";
+                content_by_lua_file "/data/www/lua_web/lua/index.lua";
     }
-    #设置除index,public,xring,adwpbrowse,adwpdownload,wpdownload,wpbrowse,fontdl,scenedl,ringdl,thdownload,bucket,zk等开头的路由外，其他路由全部通过lua方式加载
-    location ~ ^/(?!index|public|xring|adwpbrowse|adwpdownload|wpdownload|wpbrowse|fontdl|scenedl|ringdl|thdownload|bucket|zk)(.*)\.php(?!/no_into_lua) {
+    #设置除index等开头的路由外，其他路由全部通过lua方式加载
+    location ~ ^/(?!index|public)(.*)\.php(?!/no_into_lua) {
         #设置php $_SERVER['SCRIPT_NAME']
         set $php_request_uri "";
         #lua路由
@@ -50,4 +50,4 @@
 *** config/config.lua
 
   *** 找到这里，替换真正线上lua地址
-  local p = "/data/code/lua_web/"
+  local p = "/data/www/lua_web/"
