@@ -52,7 +52,7 @@ location @default {
 
 ```
 
-# 设置杂志国内代理请求（范围：server）：
+# 设置国内代理请求（范围：server）：
 
  location @mgz-cn {
       proxy_pass         http://mgz_cn;
@@ -61,7 +61,7 @@ location @default {
       proxy_set_header   X-Forwarded-For  $proxy_add_x_forwarded_for;
  }
 
-#  设置杂志英文默认代理请求（范围：server）：
+#  设置英文默认代理请求（范围：server）：
 
 ```json
  location @mgz-en {
