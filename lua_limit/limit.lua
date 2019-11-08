@@ -1,4 +1,4 @@
-local p = "/home/q/system/lua_limit/"
+local p = "/lua_limit/"
 local m_package_path = package.path
 package.path = string.format("%s?.lua;%s", p, m_package_path)
 
