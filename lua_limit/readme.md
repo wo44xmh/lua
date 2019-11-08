@@ -1,6 +1,9 @@
 nginx.conf:
 
---暂时废弃
+--
+1：主要是根据手机ip过滤后
+2：根据不同的域名分发到不同的后端主机
+3：限制流量，防止奔溃
 
 设置lua包含路径
 lua_package_path "/default/lua/?.lua;;";
